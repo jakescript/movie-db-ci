@@ -8,7 +8,9 @@ describe("Routes", ()=>{
   describe("GET /", ()=>{
     it("shows available endpoints", async()=>{
       const resp = await app.get("/")
+      const apiList = JSON.parse(resp.text)
       expect(resp.status).to.equal(200)
+      expect(apiList).to.have.all.keys("movies", "roles", "actors")
     })
   })
   describe("GET /api/movies", ()=>{
@@ -18,3 +20,5 @@ describe("Routes", ()=>{
     })
   })
 })
+
+
