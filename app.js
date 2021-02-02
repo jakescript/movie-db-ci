@@ -1,6 +1,10 @@
 const express = require("express")
+const cors = require("cors")
+
 const app = express()
-const {models: {Movie, Role, Actor} } = require("./db")
+const {models: {Movie, Role, Actor} } = require("./db");
+
+app.use(cors());
 
 app.get("/", (req,res)=>{
   res.status(200).send({
