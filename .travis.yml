@@ -1,3 +1,7 @@
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
 language: node.js
 node_js:
   - 12.18.3
+services:
+  - postgresql
